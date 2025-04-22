@@ -19,12 +19,10 @@ public class FrogSimulation
 		int numHops = 0;
 		while(numHops<maxHops)
 		{
-			int x = hopDistance();
-			goalDistance = goalDistance - x;
-			myPosition = myPosition + x;
+			myPosition = myPosition + hopDistance();
 			numHops++;
 		}
-		if(goalDistance <= 0)
+		if(myPosition >= goalDistance)
 			return true;
 		if(myPosition<0)
 			return false;
@@ -33,13 +31,13 @@ public class FrogSimulation
 	
 	public double runSimulations(int num)
 	{ 
-		int valueTrue = 0;
+		double valueTrue = 0.0;
 		for(int i = 0; i<num; i++)
 			{
 				if(simulate() == true)
 					valueTrue++;
 			}
-		return (double)valueTrue/num; 
+		return valueTrue/num; 
 
 	}
 	

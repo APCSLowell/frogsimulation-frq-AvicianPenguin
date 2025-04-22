@@ -21,11 +21,11 @@ public class FrogSimulation
 		{
 			myPosition = myPosition + hopDistance();
 			numHops++;
+			if(myPosition < 0)
+				return false;
+			else if(myPosition >= goalDistance)
+				return true;
 		}
-		if(myPosition >= goalDistance)
-			return true;
-		else if(myPosition < 0)
-			return false;
 		return false;
 	}
 	
